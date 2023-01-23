@@ -1,0 +1,65 @@
+.TubContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: visible;
+
+  height: 100vh;
+  width: 100vh;
+}
+
+.TubWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  align-self: flex-middle;
+  
+  height: 60vh;
+  width: 60vh;
+
+  background-image: url("../assets/images/box_bottom.png");
+  background-size: cover;
+  background-position: center;
+
+}
+
+.BoxTub {
+  align-self: flex-middle;
+  position: absolute;
+  height: 60vh;
+  width: 60vh;
+
+  background-image: url("../assets/images/box_tub.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.BoxLid {
+  align-self: flex-middle;
+  position: absolute;
+  height: 60vh;
+  width: 60vh;
+
+  background-image: url("../assets/images/box_lid.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.H{
+  align-self: flex-middle;
+  line-height: 1em;
+  font-size: 4em;
+  font-family: 'PPEditorialNew';
+  font-weight: 200;
+
+  padding-bottom: 1em;
+}
+
+@media screen and (max-width: 1000px) {
+  .H {
+    font-size: 3em;
+  }
+}

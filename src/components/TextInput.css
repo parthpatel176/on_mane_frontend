@@ -1,0 +1,21 @@
+.TextInputWrapper {
+  height: 2.5em;
+  width: 22em;
+  padding: 0em 0.5em;
+
+  background: #1f1f249a;
+  border: 1px solid #d9d8d62d;
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
+  outline: none;
+  
+  font-family: 'PPEditorialNew';
+  font-size: 1em;
+  font-weight: 200;
+  color: #D9D8D6;
+  transition: 0.2s all ease;
+}
+.TextInputWrapper:focus {
+  box-shadow: 0px 5px 10px #000000;
+  border: 1px solid #D9D8D6;
+  transition: 0.2s all ease;
+}

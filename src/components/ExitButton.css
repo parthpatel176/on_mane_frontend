@@ -1,0 +1,33 @@
+.ExitButtonContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+
+  height: 1.5em;
+  width: 1.5em;
+
+  background-color: #00000000;
+  border-radius: 0.75em 0.75em 0.75em 0.75em;
+}
+.ExitButtonContainer:hover {
+  cursor: pointer;
+  background-color: #ffffff2d;
+  transition: 0.2s all ease;
+}
+
+.VerticalLine {
+  height: 1em;
+  width: 1px;
+  background: #D9D8D6;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+.HorizontalLine {
+  height: 1px;
+  width: 1em;
+  background: #D9D8D6;
+  position: absolute;
+  transform: rotate(45deg);
+}
