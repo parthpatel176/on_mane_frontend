@@ -49,7 +49,6 @@ const Home: React.FC = () => {
   }, [])
 
   return (
-    // <div className='HomeContainer' style={showPreOrder? {overflowY: 'hidden'} : null}>
     <div className='HomeContainer'>
       <motion.div className='HomeWrapper' >
         <PreOrder />
