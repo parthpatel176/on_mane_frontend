@@ -21,24 +21,34 @@
     to bottom,
     #000000 0%,
     transparent 30%
-  ), url("../assets/images/hero_background.png");
+  );
+  /* url("../assets/images/hero_background.png"); */
   background-size: cover;
   background-position: center;
 }
 
 .HeroTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   font-family: "OptimusPrinceps";
-  font-size: 5em;
+  font-size: 10em;
   color: #D9D8D6;
   text-shadow: 0px 5px 10px #000000;
-  line-height: 2em;
+  line-height: 1.3em;
+  text-shadow: 0px 0px 50px #d9d8d63c;
 }
 
 .HeroSubtitle {
   font-family: "PPEditorialNew";
-  font-weight: 200;
-  font-size: 2em;
-  color: #D9D8D6;
-  text-shadow: 0px 5px 10px #000000;
+  font-weight: 400;
+  font-size: 4em;
+  color: #5f0000;
+  /* text-shadow: 0px 5px 10px #000000; */
+  text-shadow: 0px 0px 50px #5f0000;
   line-height: 1em;
+  
+
 }

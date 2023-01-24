@@ -8,6 +8,7 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import OpenTub from '../components/OpenTub';
 import PreOrder from '../components/PreOrder';
+import TileBackground from '../components/TileBackground';
 
 
 // Type declaration for Home page state store
@@ -54,9 +55,10 @@ const Home: React.FC = () => {
         <PreOrder />
         <Navbar />
         <Hero />
-        <motion.div className='Body' animate={popOutNav ? {y: -50} : {y: 0}} transition={{duration: 0.2}} >
+        <div className='Body'>
+          <TileBackground />
           <OpenTub />
-        </motion.div>
+        </div>
       </motion.div>
     </div>
   )
