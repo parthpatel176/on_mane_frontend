@@ -56,7 +56,6 @@ const Home: React.FC = () => {
         <Navbar />
         <Hero />
         <div className='Body'>
-          <TileBackground />
           <OpenTub />
         </div>
       </motion.div>

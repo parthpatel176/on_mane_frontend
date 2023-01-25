@@ -7,8 +7,6 @@
   overflow: hidden;
 
   display: grid;
-  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
   place-items: center;
   align-self: flex-center;
   justify-content: center;
@@ -28,4 +26,6 @@
   font-size: 1em;
 
   color: #d8d8d81e;
+  /* color: #ffffff;   */
+
 }

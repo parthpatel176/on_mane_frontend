@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
           On Mane
         </motion.div>
         <motion.div className="HeroSubtitle" animate={popOutNav ? {y: -100, opacity: 0} : {y: 0}} transition={{duration: 0.1}} >
-          Results driven haircare.
+          OM-1
         </motion.div>
       </div>
     </div>
