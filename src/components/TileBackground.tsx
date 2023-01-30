@@ -20,7 +20,7 @@ const TileBackground: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setStyles(styles.map(() => 
-        {if (Math.random() < 0.025) {
+        {if (Math.random() < 0.05) {
           return true
         } else {
           return false
@@ -35,9 +35,9 @@ const TileBackground: React.FC = () => {
   const tiles = styles.map( (style, i) => 
       <motion.div 
         className="Tile" 
-        key={i} 
+        key={i}
         animate={style ? {opacity: 0.8, textShadow: '0px 0px 4px #ffffffc1'} : {opacity: 0.1, textShadow: '0px 0px 3px #ffffff0'}} 
-        transition={{duration: 1.5, ease: 'easeIn'}}
+        transition={{duration: 2, ease: 'easeInOut'}}
       >
         On Mane
       </motion.div>
