@@ -13,8 +13,8 @@ const Hero: React.FC = () => {
   return (
     <div className="HeroContainer">
       <TileBackground />
-      <motion.div className="HeroWrapper" animate={popOutNav ? {y: -100, opacity: 0} : {y: 0}} transition={{duration: 0.1}}>
-        <motion.div className="HeroTitle" >
+      <motion.div className="HeroWrapper">
+        <motion.div className="HeroTitle">
           On Mane
         </motion.div>
         <motion.div className="HeroSubtitle">
