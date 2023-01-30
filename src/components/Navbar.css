@@ -24,7 +24,7 @@
   border-radius: 0.5em 0.5em 0.5em 0.5em;
   border: 1px groove #ffffff3a;
   box-shadow: 0px 5px 10px #000000af;
-  backdrop-filter: contrast(130%) brightness(120%) blur(10px);
+  backdrop-filter: contrast(99%) brightness(150%) blur(10px);
   padding: 0em 2em;
   transition: 0.2s all ease;
 }

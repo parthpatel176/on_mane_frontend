@@ -6,6 +6,16 @@
 
   height: 80vh;
   width: 100vw;
+
+  background-image: linear-gradient(
+    to bottom,
+    #000000 5%,
+    #00000000 40%
+  ), linear-gradient(
+    to top,
+    #000000 0%,
+    #00000000 40%
+  );
 }
 
 .HeroWrapper {
@@ -30,6 +40,7 @@
   line-height: 1.3em;
   /* text-shadow: 0px 0px 50px #d9d8d63c; */
   text-shadow: 0px 0px 15px #000000;
+
 }
 
 .HeroSubtitle {
@@ -38,7 +49,7 @@
   font-size: 4em;
   color: #5f0000;
   /* text-shadow: 0px 5px 10px #000000; */
-  /* text-shadow: 0px 0px 50px #5f0000; */
+  text-shadow: 0px 0px 20px #ff000059;
   line-height: 1em;
   
 
