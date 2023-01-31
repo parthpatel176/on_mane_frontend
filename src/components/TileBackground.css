@@ -7,7 +7,6 @@
   overflow: hidden;
 
   display: grid;
-  /* flex-wrap: wrap; */
   place-items: center;
   align-self: flex-center;
   justify-content: center;

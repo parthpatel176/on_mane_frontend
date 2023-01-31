@@ -13,28 +13,58 @@ const TileBackground: React.FC = () => {
     gridTemplateRows: `repeat(${repeatY}, 35px)`,
   }
 
+  // Convert x and y to array index
+  const xyToIndex = (x: number, y: number) => {
+    return x + y * repeatX
+  }
+  // Convert array index to x and y
+  const indexToXY = (i: number) => {
+    return [i % repeatX, Math.floor(i / repeatX)]
+  }
+
+  // Equation for sine wave
+  const sinWave = (x: number, time: number) => {
+    const amplitude = 4
+    const frequency = 0.2
+    const phase = time % repeatX
+
+    return Math.floor(amplitude * Math.sin(frequency * x + phase))
+  }
+
   // State for background animation
   const [styles, setStyles] = useState(Array(repeatX*repeatY).fill(false));
 
   // Effect to update background animation array
   useEffect(() => {
     const interval = setInterval(() => {
-      setStyles(styles.map(() => 
-        {if (Math.random() < 0.02) {
-          return true
-        } else {
-          return false
-        }}
-        ))
-    }, 2000);
+      const time = Date.now() / 1000
+      // Array of numbers of length repeatX
+      let yArray = Array(repeatX)
+      for (let x = 0; x < repeatX; x++) {
+        yArray[x] = sinWave(x, time)
+      }
+      // If coordinate is on sine wave, set style to true
+      setStyles(styles.map((style, i) => {
+        const x = indexToXY(i)[0]
+        const y = indexToXY(i)[1]
+        {
+          if (yArray[x] === y - Math.floor(repeatY / 2)){
+            return true
+          } else {
+            return false
+          }
+        }
+      }))
+    }, 1000);
     return () => clearInterval(interval);
   }, [styles]);
   
   // Create tiles by going over styles array
-  const tiles = styles.map( (style, i) => 
+  const tiles = styles.map((style, i) => 
       <motion.div
         className="Tile" 
         key={i}
+        // style={{opacity: style}}
         animate={style ? {opacity: 0.8, textShadow: '0px 0px 4px #ffffffc1'} : {opacity: 0.1, textShadow: '0px 0px 3px #ffffff0'}} 
         transition={{duration: 2, ease: 'easeInOut'}}
       >
