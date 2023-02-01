@@ -24,8 +24,8 @@ const TileBackground: React.FC = () => {
 
   // Equation for sine wave
   const sinWave = (x: number, time: number) => {
-    const amplitude = 4
-    const frequency = 0.2
+    const amplitude = 5
+    const frequency = 0.5
     const phase = time % repeatX
 
     return Math.floor(amplitude * Math.sin(frequency * x + phase))
@@ -47,15 +47,13 @@ const TileBackground: React.FC = () => {
       setStyles(styles.map((style, i) => {
         const x = indexToXY(i)[0]
         const y = indexToXY(i)[1]
-        {
-          if (yArray[x] === y - Math.floor(repeatY / 2)){
-            return true
-          } else {
-            return false
-          }
+        if (yArray[x] === y - Math.floor(repeatY / 2)){
+          return true
+        } else {
+          return false
         }
       }))
-    }, 1000);
+    }, 200);
     return () => clearInterval(interval);
   }, [styles]);
   
@@ -66,7 +64,7 @@ const TileBackground: React.FC = () => {
         key={i}
         // style={{opacity: style}}
         animate={style ? {opacity: 0.8, textShadow: '0px 0px 4px #ffffffc1'} : {opacity: 0.1, textShadow: '0px 0px 3px #ffffff0'}} 
-        transition={{duration: 2, ease: 'easeInOut'}}
+        transition={{duration: 0.4, ease: 'easeInOut'}}
       >
         On Mane
       </motion.div>
