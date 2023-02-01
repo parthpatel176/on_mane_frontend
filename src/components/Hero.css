@@ -42,8 +42,8 @@
   color: #D9D8D6;
   line-height: 1.3em;
   /* text-shadow: 0px 0px 50px #d9d8d63c; */
-  text-shadow: 0px 0px 20px #000000;
-
+  /* text-shadow: 0px 0px 25px #ff0000db; */
+  text-shadow: 0px 0px 10px #ffffff9f;
 }
 
 .HeroSubtitle {

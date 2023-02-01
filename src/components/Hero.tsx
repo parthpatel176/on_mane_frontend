@@ -10,6 +10,17 @@ const Hero: React.FC = () => {
   // State for navbar from imported state store
   const popOutNav = stateStore((state: any) => state.popOutNav)
 
+  // // State for glow style
+  // const [glow, setGlow] = useState(false)
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setGlow(!glow)
+  //   }, 2000);
+  //   return () => clearInterval(interval);
+  // }, [glow]);
+
+
   return (
     <div className="HeroContainer">
       <TileBackground />

@@ -6,7 +6,7 @@ import "./TileBackground.css";
 
 const TileBackground: React.FC = () => {
   // Set tile grid dimensions to fill screen based on window size
-  const repeatX = Math.floor(window.innerWidth * 1.2 / 90)
+  const repeatX = Math.floor(window.innerWidth * 1.2 / 90) - 1
   const repeatY = Math.floor(window.innerHeight * 0.9 / 35)
   const gridStyle = {
     gridTemplateColumns: `repeat(${repeatX}, 90px)`,
@@ -57,15 +57,19 @@ const TileBackground: React.FC = () => {
   //   return () => clearInterval(interval);
   // }, [styles]);
   useEffect(() => {
+    const midX = Math.floor(repeatX / 2)
+    const midY = Math.floor(repeatY / 2)
     const interval = setInterval(() => {
       setStyles(styles.map((style, j) => {
-        if (Math.random() < 0.05) {
+        const x = indexToXY(j)[0]
+        const y = indexToXY(j)[1]
+        if (Math.random() < 0.2 && !(Math.abs(x - midX) < 5 && Math.abs(y - midY) < 4)) {
           return true
         } else {
           return false
         }
       }))
-    }, 1000);
+    }, 500);
     return () => clearInterval(interval);
   }, [styles]);
   
@@ -75,7 +79,7 @@ const TileBackground: React.FC = () => {
         className="Tile" 
         key={i}
         // style={{opacity: style}}
-        animate={style ? {opacity: 0.8, textShadow: '0px 0px 4px #ffffffc1', fontSize: '1.5em'} : {opacity: 0.1, textShadow: '0px 0px 3px #ffffff0', fontSize: '1em'}} 
+        animate={style ? {opacity: 0.8, textShadow: '0px 0px 4px #ffffffc1'} : {opacity: 0.1, textShadow: '0px 0px 3px #ffffff0'}} 
         transition={{duration: 2, ease: 'easeInOut'}}
       >
         On Mane
