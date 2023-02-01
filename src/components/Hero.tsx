@@ -17,9 +17,6 @@ const Hero: React.FC = () => {
         <motion.div className="HeroTitle">
           On Mane
         </motion.div>
-        <motion.div className="HeroSubtitle">
-          OM-1
-        </motion.div>
       </motion.div>
     </div>
   );
