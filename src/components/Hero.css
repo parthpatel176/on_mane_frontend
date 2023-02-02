@@ -40,9 +40,7 @@
   font-family: "OptimusPrinceps";
   font-size: 10em;
   color: #D9D8D6;
-  line-height: 1.3em;
-  /* text-shadow: 0px 0px 50px #d9d8d63c; */
-  /* text-shadow: 0px 0px 25px #ff0000db; */
+  line-height: 1em;
   text-shadow: 0px 0px 10px #ffffff9f;
 }
 

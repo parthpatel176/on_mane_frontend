@@ -42,8 +42,9 @@ const TileBackground: React.FC = () => {
 
   // Set initial background animation frames
   const midX = Math.floor(repeatX / 2)
-  const midY = Math.floor(repeatY / 2)
+  const midY = Math.floor(repeatY / 2) + 1
   let animationFrames: Array<Array<number>> = []
+
   // Create 10 frames
   for (let i = 0; i < 10; i++) {
     // Create random number of tiles to animate in each frame
@@ -53,7 +54,7 @@ const TileBackground: React.FC = () => {
       while (!valid) {
         const x = randomInt(0, repeatX - 1)
         const y = randomInt(0, repeatY - 1)
-        if (Math.abs(x - midX) < 5 && Math.abs(y - midY) < 4) {
+        if (Math.abs(x - midX) < 5 && Math.abs(y - midY) < 3) {
           continue
         }
         if (frame.includes(xyToIndex(x, y))) {
