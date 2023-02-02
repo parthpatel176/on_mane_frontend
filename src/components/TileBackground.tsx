@@ -75,7 +75,7 @@ const TileBackground: React.FC = () => {
     }, 500)
     return () => clearInterval(interval)
   }, [styles])
-  
+
   // Create tiles by going over styles array
   const tiles = styles.map((style, i) => 
       <motion.div
