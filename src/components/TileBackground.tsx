@@ -5,6 +5,12 @@ import { motion } from 'framer-motion';
 import "./TileBackground.css";
 
 const TileBackground: React.FC = () => {
+
+  // Function to generate random integer between min and max (inclusive)
+  const randomInt = (min: number, max: number) => {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
   // Set tile grid dimensions to fill screen based on window size
   const repeatX = Math.floor(window.innerWidth * 1.2 / 90) - 1
   const repeatY = Math.floor(window.innerHeight * 0.9 / 35)
@@ -32,55 +38,50 @@ const TileBackground: React.FC = () => {
   }
 
   // State for background animation
-  const [styles, setStyles] = useState(Array(repeatX*repeatY).fill(false));
+  const [styles, setStyles] = useState(Array(repeatX*repeatY).fill(false))
+
+  // Set initial background animation frames
+  const midX = Math.floor(repeatX / 2)
+  const midY = Math.floor(repeatY / 2)
+  let animationFrames: Array<Array<number>> = []
+  // Create 10 frames
+  for (let i = 0; i < 10; i++) {
+    // Create random number of tiles to animate in each frame
+    let frame: Array<number> = []
+    for (let j = 0; j < randomInt(10, 20); j++) {
+      let valid = false
+      while (!valid) {
+        const x = randomInt(0, repeatX - 1)
+        const y = randomInt(0, repeatY - 1)
+        if (Math.abs(x - midX) < 5 && Math.abs(y - midY) < 4) {
+          continue
+        }
+        if (frame.includes(xyToIndex(x, y))) {
+          continue
+        }
+        valid = true
+        frame.push(xyToIndex(x, y))
+      }
+    }
+    animationFrames.push(frame)
+  }
 
   // Effect to update background animation array
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     const time = Date.now() / 1000
-  //     // Array of numbers of length repeatX
-  //     let yArray = Array(repeatX)
-  //     for (let x = 0; x < repeatX; x++) {
-  //       yArray[x] = sinWave(x, time)
-  //     }
-  //     // If coordinate is on sine wave, set style to true
-  //     setStyles(styles.map((style, i) => {
-  //       const x = indexToXY(i)[0]
-  //       const y = indexToXY(i)[1]
-  //       if (yArray[x] === y - Math.floor(repeatY / 2)){
-  //         return true
-  //       } else {
-  //         return false
-  //       }
-  //     }))
-  //   }, 200);
-  //   return () => clearInterval(interval);
-  // }, [styles]);
   useEffect(() => {
-    const midX = Math.floor(repeatX / 2)
-    const midY = Math.floor(repeatY / 2)
     const interval = setInterval(() => {
-      setStyles(styles.map((style, j) => {
-        const x = indexToXY(j)[0]
-        const y = indexToXY(j)[1]
-        if (Math.random() < 0.2 && !(Math.abs(x - midX) < 5 && Math.abs(y - midY) < 4)) {
-          return true
-        } else {
-          return false
-        }
-      }))
-    }, 500);
-    return () => clearInterval(interval);
-  }, [styles]);
+      const frame = animationFrames[Math.floor(Math.random() * animationFrames.length)]
+      setStyles(styles.map((style, i) => frame.includes(i) ? true : false))
+    }, 500)
+    return () => clearInterval(interval)
+  }, [styles])
   
   // Create tiles by going over styles array
   const tiles = styles.map((style, i) => 
       <motion.div
         className="Tile" 
         key={i}
-        // style={{opacity: style}}
-        animate={style ? {opacity: 0.8, textShadow: '0px 0px 4px #ffffffc1'} : {opacity: 0.1, textShadow: '0px 0px 3px #ffffff0'}} 
-        transition={{duration: 2, ease: 'easeInOut'}}
+        animate={style ? {opacity: 0.5, textShadow: '0px 0px 4px #ffffffc1'} : {opacity: 0.1, textShadow: '0px 0px 3px #ffffff0'}} 
+        transition={{duration: 1, ease: 'easeInOut'}}
       >
         On Mane
       </motion.div>
