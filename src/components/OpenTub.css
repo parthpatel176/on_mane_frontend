@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   overflow: visible;
 
   height: 100vh;
@@ -23,7 +23,6 @@
   background-image: url("../assets/images/box_bottom.png");
   background-size: cover;
   background-position: center;
-
 }
 
 .BoxTub {

@@ -81,7 +81,7 @@ const TileBackground: React.FC = () => {
       <motion.div
         className="Tile" 
         key={i}
-        animate={style ? {opacity: 0.5, textShadow: '0px 0px 4px #ffffffc1'} : {opacity: 0.1, textShadow: '0px 0px 3px #ffffff0'}} 
+        animate={style ? {opacity: 0.6, textShadow: '0px 0px 4px #ffffffc1'} : {opacity: 0.1, textShadow: '0px 0px 3px #ffffff0'}} 
         transition={{duration: 1, ease: 'easeInOut'}}
       >
         On Mane

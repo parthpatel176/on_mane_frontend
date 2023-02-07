@@ -50,8 +50,8 @@ const Home: React.FC = () => {
   }, [])
 
   return (
-    <div className='HomeContainer'>
-      <motion.div className='HomeWrapper' >
+    <div className='HomeContainer' id='HomeWindow'>
+      <motion.div className='HomeWrapper'>
         <PreOrder />
         <Navbar />
         <Hero />

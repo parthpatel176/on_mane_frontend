@@ -8,6 +8,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: start;
+
+  height: 400vh;
 }
 
 .Body {
@@ -18,25 +20,6 @@
 
   height: 100%;
   width: 100%;
-
-  /* background-image: 
-  linear-gradient(
-    to right,
-    #000000a2,
-    #00000060 50%
-  ), linear-gradient(
-    to left,
-    #000000a2,
-    #00000060 50%
-  ),
-  url("../assets/images/logo.png"); */
-  /* background-repeat: repeat;
-  background-size: 100px;
-  background-position: center;
-  background-color: #000000; */
-
-  /* box-shadow: 0 0 50px 50px #000000; */
-
 }
 
 .Spacer {
