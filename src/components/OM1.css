@@ -1,21 +1,27 @@
-.TubContainer {
+.OM1Container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: visible;
 
-  height: 100vh;
-  width: 100vh;
+  height: 200vh;
 }
 
-.TubWrapper {
+.OM1Wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: visible;
-  align-self: flex-middle;
+  padding: 8vh 0vh;
+  transition: all 0.1s ease;
+}
+
+.BoxWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   
   height: 60vh;
   width: 60vh;
@@ -54,7 +60,7 @@
   font-family: 'PPEditorialNew';
   font-weight: 200;
 
-  padding-bottom: 1em;
+  padding: 1em 0em;
 }
 
 @media screen and (max-width: 1000px) {

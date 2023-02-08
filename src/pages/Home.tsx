@@ -6,9 +6,8 @@ import { motion } from 'framer-motion';
 import './Home.css';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import OpenTub from '../components/OpenTub';
+import OM1 from '../components/OM1';
 import PreOrder from '../components/PreOrder';
-import TileBackground from '../components/TileBackground';
 
 
 // Type declaration for Home page state store
@@ -55,9 +54,7 @@ const Home: React.FC = () => {
         <PreOrder />
         <Navbar />
         <Hero />
-        <div className='Body'>
-          <OpenTub />
-        </div>
+        <OM1 />
       </motion.div>
     </div>
   )

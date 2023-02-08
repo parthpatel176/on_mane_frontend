@@ -4,7 +4,12 @@ import { motion } from 'framer-motion';
 
 import "./TileBackground.css";
 
-const TileBackground: React.FC = () => {
+type TileBackgroundProps = {
+  height: number
+  width: number
+}
+
+const TileBackground: React.FC<TileBackgroundProps> = ({height, width}: TileBackgroundProps) => {
 
   // Function to generate random integer between min and max (inclusive)
   const randomInt = (min: number, max: number) => {
@@ -12,8 +17,8 @@ const TileBackground: React.FC = () => {
   }
 
   // Set tile grid dimensions to fill screen based on window size
-  const repeatX = Math.floor(window.innerWidth * 1.2 / 90) - 1
-  const repeatY = Math.floor(window.innerHeight * 0.9 / 35)
+  const repeatX = Math.floor(width * 1.1 / 90) - 1
+  const repeatY = Math.floor(height / 35) - 1
   const gridStyle = {
     gridTemplateColumns: `repeat(${repeatX}, 90px)`,
     gridTemplateRows: `repeat(${repeatY}, 35px)`,
@@ -22,19 +27,6 @@ const TileBackground: React.FC = () => {
   // Convert x and y to array index
   const xyToIndex = (x: number, y: number) => {
     return x + y * repeatX
-  }
-  // Convert array index to x and y
-  const indexToXY = (i: number) => {
-    return [i % repeatX, Math.floor(i / repeatX)]
-  }
-
-  // Equation for sine wave
-  const sinWave = (x: number, time: number) => {
-    const amplitude = 5
-    const frequency = 0.5
-    const phase = time % repeatX
-
-    return Math.floor(amplitude * Math.sin(frequency * x + phase))
   }
 
   // State for background animation
@@ -78,18 +70,18 @@ const TileBackground: React.FC = () => {
 
   // Create tiles by going over styles array
   const tiles = styles.map((style, i) => 
-      <motion.div
-        className="Tile" 
-        key={i}
-        animate={style ? {opacity: 0.6, textShadow: '0px 0px 4px #ffffffc1'} : {opacity: 0.1, textShadow: '0px 0px 3px #ffffff0'}} 
-        transition={{duration: 1, ease: 'easeInOut'}}
-      >
-        On Mane
-      </motion.div>
-    )
+    <motion.div
+    className="Tile" 
+    key={i}
+    animate={style ? {opacity: 0.6, textShadow: '0px 0px 4px #ffffffc1'} : {opacity: 0.1, textShadow: '0px 0px 3px #ffffff0'}} 
+    transition={{duration: 1, ease: 'easeInOut'}}
+    >
+      On Mane
+    </motion.div>
+  )
 
   return (
-    <div className="Container" style={gridStyle}>
+    <div className="Container" id="Container1" style={gridStyle}>
       {tiles}
     </div>
   )
