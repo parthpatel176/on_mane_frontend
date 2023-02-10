@@ -24,14 +24,13 @@ const OM1: React.FC = () => {
     // If container is in view frane, fix OM1 in place
     if ((container.top < 0) && (container.bottom > window.innerHeight)) { 
       setFixView(true)
-      // Update animation scroll progress
-      setProgress((wrapper.top - container.top) / (container.height - wrapper.height))
     } else {
       setFixView(false)
     }
-    
     // If container is above view frame, place OM1 in flex-end
     if (container.top < 0) { setFlexEnd(true) } else { setFlexEnd(false) }
+    // Update animation scroll progress
+    setProgress((wrapper.top - container.top) / (container.height - wrapper.height))
   }
 
   // Execute scrolling animations
