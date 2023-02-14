@@ -8,7 +8,7 @@ import StripeCheckout from "./StripeCheckout";
 const PreOrder: React.FC = () => {
 
   return (
-    <div className="PreOrderContainer">
+    <div className="PreOrderContainer" id="PreOrderContainer">
       <div className="PreOrderWrapper">
         <div className="Header">
           Pre-Order first batch

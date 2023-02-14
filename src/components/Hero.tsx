@@ -1,9 +1,6 @@
 import React from "react";
-// import { motion } from 'framer-motion';
-// import { useState, useEffect } from 'react';
 
 import "./Hero.css";
-import { stateStore } from '../pages/Home';
 import TileBackground from "./TileBackground";
 
 const Hero: React.FC = () => {

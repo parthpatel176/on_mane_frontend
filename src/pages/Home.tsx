@@ -15,16 +15,16 @@ interface SateStore {
   popOutNav: boolean
   enablePopOutNav: () => void
   disablePopOutNav: () => void
-  showPreOrder: boolean
-  togglePreOrder: () => void
+  preOrderPage: number
+  setPreOrderPage: (page: number) => void
 }
 // Create state for navbar state
 export const stateStore = create<SateStore>(set => ({
   popOutNav: false,
   enablePopOutNav: () => set({ popOutNav: true }),
   disablePopOutNav: () => set({ popOutNav: false }),
-  showPreOrder: false,
-  togglePreOrder: () => set((state) => ({ showPreOrder: !state.showPreOrder })),
+  preOrderPage: 0,
+  setPreOrderPage: (page: number) => set({ preOrderPage: page })
 }))
 
 
@@ -33,12 +33,9 @@ const Home: React.FC = () => {
   // Functions to update navbar state
   const enablePopOutNav = stateStore(state => state.enablePopOutNav)
   const disablePopOutNav = stateStore(state => state.disablePopOutNav)
-  // State for navbar popout
-  const popOutNav = stateStore((state: any) => state.popOutNav)
-  // State for pre-order modal
-  const showPreOrder = stateStore((state: any) => state.showPreOrder)
-  // Set scrolling on root element based on pre-order modal
-  showPreOrder? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'visible'
+  const setPreOrderPage = stateStore(state => state.setPreOrderPage)
+
+  
   // Home page effects based on scroll
   const scrollEffects = () => {
     if (window.scrollY >= 40) {enablePopOutNav()} else {disablePopOutNav()}

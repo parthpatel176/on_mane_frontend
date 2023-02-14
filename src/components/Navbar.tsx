@@ -7,9 +7,6 @@ const Navbar: React.FC = () => {
   // State for navbar from imported state store
   const popOutNav = stateStore((state: any) => state.popOutNav)
 
-  // Function to toggle pre-order modal
-  const togglePreOrder = stateStore(state => state.togglePreOrder)
-
   // Style object for transparent navbar wrapper
   const invisibleNav: React.CSSProperties = {
     backgroundColor: 'rgba(0, 0, 0, 0.0)',
@@ -29,7 +26,6 @@ const Navbar: React.FC = () => {
     window.scrollTo({top: 0, behavior: 'smooth'})
   }
 
-
   return (
     <div className="NavbarContainer">
       <div className="NavbarWrapper" style={popOutNav? undefined : invisibleNav}>
@@ -48,7 +44,7 @@ const Navbar: React.FC = () => {
           On Mane
         </div>
         <div className="RightSide">
-          <div className="Button" onClick={togglePreOrder}>
+          <div className="Button" onClick={undefined}>
             Pre-Order
           </div>
         </div>
