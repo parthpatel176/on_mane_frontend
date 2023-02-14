@@ -17,7 +17,7 @@ const OM1: React.FC = () => {
   // Handle scroll events
   const handleScroll = () => {
     // Slide in OM1
-    if (window.scrollY > 300) {setSlide(true)} else {setSlide(false)}
+    if (window.scrollY > 300) {setSlide(true)}
     // Get container and wrapper bounding boxes
     const container: any = document.getElementById("OM1Container")?.getBoundingClientRect()
     const wrapper: any = document.getElementById("OM1Wrapper")?.getBoundingClientRect()
@@ -49,7 +49,7 @@ const OM1: React.FC = () => {
       id="OM1Wrapper" 
       style={fixView ? {position: 'fixed', top: '0%', bottom: '0%'} : {}}
       >
-        <motion.div className="H" animate={slide ? {y: 0, opacity: 100} : {y: +100, opacity: 0}} transition={{duration: 0.1}}>
+        <motion.div className="H" animate={slide ? {y: 0, opacity: 100} : {y: +100, opacity: 0}} transition={{duration: 0.2}}>
           Introducing the OM-1
         </motion.div>
         <div className="BoxWrapper" id="BoxWrapper">
@@ -57,7 +57,7 @@ const OM1: React.FC = () => {
           animate={{rotate: 90 * progress}} transition={{duration: 0}}
           />
           <motion.div  className="BoxLid" 
-          animate={{x: -300 * progress, y: 50 * progress, rotate: -25 * progress}} transition={{duration: 0}}
+          animate={{x: -400 * progress, rotate: -85 * progress}} transition={{duration: 0}}
           />
         </div>
       </motion.div>

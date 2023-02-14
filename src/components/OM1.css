@@ -51,6 +51,7 @@
   background-image: url("../assets/images/box_lid.png");
   background-size: cover;
   background-position: center;
+  box-shadow: 0px 10px 15px #000000af;
 }
 
 .H{

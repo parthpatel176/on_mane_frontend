@@ -51,10 +51,10 @@ const Home: React.FC = () => {
   return (
     <div className='HomeContainer' id='HomeWindow'>
       <motion.div className='HomeWrapper'>
-        <PreOrder />
         <Navbar />
         <Hero />
         <OM1 />
+        <PreOrder />
       </motion.div>
     </div>
   )

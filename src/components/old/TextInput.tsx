@@ -4,14 +4,16 @@ import './TextInput.css';
 
 interface TextInputProps {
   defaultText: string
+  animateTrigger: boolean
 }
 
-const TextInput: React.FC<TextInputProps> = ({defaultText}) => {
+const TextInput: React.FC<TextInputProps> = ({defaultText, animateTrigger}) => {
   const [text, setText] = useState(defaultText)
 
   // make a function to use defaultText to determine styling of text color
   const styling = {
     color: text == defaultText ? '#d9d8d670' : undefined,
+    opacity: animateTrigger ? 100 : 0
   }
   
   return (
