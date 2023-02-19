@@ -9,32 +9,33 @@ import Hero from '../components/Hero';
 import OM1 from '../components/OM1';
 import PreOrder from '../components/PreOrder';
 
-
 // Type declaration for Home page state store
-interface SateStore {
+export interface SateStoreInterface {
   popOutNav: boolean
   enablePopOutNav: () => void
   disablePopOutNav: () => void
-  preOrderPage: number
-  setPreOrderPage: (page: number) => void
+
+  tubAnimScrollLock: boolean
+  enableTubAnimScrollLock: () => void
+  disableTubAnimScrollLock: () => void
 }
 // Create state for navbar state
-export const stateStore = create<SateStore>(set => ({
+export const useStateStore = create<SateStoreInterface>((set, get) => ({
   popOutNav: false,
   enablePopOutNav: () => set({ popOutNav: true }),
   disablePopOutNav: () => set({ popOutNav: false }),
-  preOrderPage: 0,
-  setPreOrderPage: (page: number) => set({ preOrderPage: page })
+
+  tubAnimScrollLock: false,
+  enableTubAnimScrollLock: () => set({ tubAnimScrollLock: true }),
+  disableTubAnimScrollLock: () => set({ tubAnimScrollLock: false })
 }))
 
 
 const Home: React.FC = () => {
 
   // Functions to update navbar state
-  const enablePopOutNav = stateStore(state => state.enablePopOutNav)
-  const disablePopOutNav = stateStore(state => state.disablePopOutNav)
-  const setPreOrderPage = stateStore(state => state.setPreOrderPage)
-
+  const enablePopOutNav = useStateStore(state => state.enablePopOutNav)
+  const disablePopOutNav = useStateStore(state => state.disablePopOutNav)
   
   // Home page effects based on scroll
   const scrollEffects = () => {
@@ -47,7 +48,7 @@ const Home: React.FC = () => {
 
   return (
     <div className='HomeContainer' id='HomeWindow'>
-      <motion.div className='HomeWrapper'>
+      <motion.div className='HomeWrapper' id='HomeWrapper'>
         <Navbar />
         <Hero />
         <OM1 />

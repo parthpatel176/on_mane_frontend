@@ -1,11 +1,11 @@
 import React from "react";
 
 import "./Navbar.css";
-import { stateStore } from '../pages/Home';
+import { useStateStore } from '../pages/Home';
 
 const Navbar: React.FC = () => {
   // State for navbar from imported state store
-  const popOutNav = stateStore((state: any) => state.popOutNav)
+  const popOutNav = useStateStore(state => state.popOutNav)
 
   // Style object for transparent navbar wrapper
   const invisibleNav: React.CSSProperties = {

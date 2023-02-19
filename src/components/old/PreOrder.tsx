@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import "./PreOrder.css";
 
 import ExitButton from "./ExitButton";
-import { stateStore } from '../../pages/Home';
+import { useStateStore } from '../../pages/Home';
 import TextInput from "./TextInput";
 import StripeCheckout from "../StripeCheckout";
 
