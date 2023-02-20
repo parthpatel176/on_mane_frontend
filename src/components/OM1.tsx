@@ -7,10 +7,6 @@ import { useStateStore } from '../pages/Home';
 import "./OM1.css";
 
 const OM1: React.FC = () => {
-  // // Sate for sliding in frame
-  // const [slide, setSlide] = useState(false)
-  // State for opacity based on how far component is from being in view
-  const [opacity, setOpacity] = useState(1)
   // State for placing OM1 in flex-start
   const [flexEnd, setFlexEnd] = useState(false)
   // State for animation progress
@@ -19,31 +15,36 @@ const OM1: React.FC = () => {
   const tubAnimScrollLock = useStateStore(state => state.tubAnimScrollLock)
   const enableTubAnimScrollLock = useStateStore(state => state.enableTubAnimScrollLock)
   const disableTubAnimScrollLock = useStateStore(state => state.disableTubAnimScrollLock)
+  // States for title animation
+  const [titleAnim, setTitleAnim] = useState({y: 200, opacity: 0})
 
   // Handle scroll events
   const handleScroll = () => {    
     // Get container and wrapper bounding boxes
     const container: any = document.getElementById("OM1Container")?.getBoundingClientRect()
     const wrapper: any = document.getElementById("OM1Wrapper")?.getBoundingClientRect()
-    // // Slide in OM1
-    // if (window.scrollY > 300) {setSlide(true)} else {setSlide(false)}
-    if (container.top < window.innerHeight) {
-      setOpacity(container.top / window.innerHeight)
-    } else {
-      setOpacity(1)
-    }
-    // If container is in view frane, fix OM1 in place
+     // If container is in view frane, fix OM1 in place
     if ((container.top <= 0) && (container.bottom > window.innerHeight)) { 
       enableTubAnimScrollLock()
     } else {
       disableTubAnimScrollLock()
+    }
+    if (container.top > 0) {
+      setTitleAnim({
+        y: 200 * (container.top / window.innerHeight),
+        opacity: 1 - (container.top / window.innerHeight)
+      })
+    } else {
+      setTitleAnim({
+        y: 0,
+        opacity: 1
+      })
     }
     // If container is above view frame, place OM1 in flex-end
     if (container.top < -100) { setFlexEnd(true) } else { setFlexEnd(false) }
     // Update animation scroll progress
     setProgress((wrapper.top - container.top) / (container.height - wrapper.height))
   }
-
 
   // Execute scrolling animations
   useEffect(() => {
@@ -53,7 +54,7 @@ const OM1: React.FC = () => {
   return (
     <div className="OM1Container" id="OM1Container" style={flexEnd ? {justifyContent: 'flex-end'} : {}}>
       <motion.div className="OM1Wrapper" id="OM1Wrapper" style={tubAnimScrollLock ? {position: 'fixed'} : {position: 'relative'}}>
-        <motion.div className="H" animate={{y: opacity*200, opacity: 1-opacity}} transition={{duration: 0}}>
+        <motion.div className="H" animate={titleAnim} transition={{duration: 0}}>
           Introducing the OM-1
         </motion.div>
         <div className="BoxWrapper" id="BoxWrapper">
