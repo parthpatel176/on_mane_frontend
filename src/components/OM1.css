@@ -27,6 +27,8 @@
   
   height: 60vh;
   width: 60vh;
+  max-width: 600px;
+  max-height: 600px;
 
   background-image: url("../assets/images/box_bottom.png");
   background-size: cover;
@@ -38,6 +40,8 @@
   position: absolute;
   height: 60vh;
   width: 60vh;
+  max-width: 600px;
+  max-height: 600px;
 
   background-image: url("../assets/images/box_tub.png");
   background-size: cover;
@@ -49,6 +53,8 @@
   position: absolute;
   height: 60vh;
   width: 60vh;
+  max-width: 600px;
+  max-height: 600px;
 
   background-image: url("../assets/images/box_lid.png");
   background-size: cover;

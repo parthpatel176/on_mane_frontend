@@ -8,6 +8,7 @@
 
   height: 8vh;
   width: 100vw;
+  max-height: 70px;
 }
 
 .NavbarWrapper {
