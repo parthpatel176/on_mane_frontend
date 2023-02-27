@@ -34,7 +34,7 @@ const TileBackground: React.FC<TileBackgroundProps> = ({height, width}: TileBack
 
   // Set initial background animation frames
   const midX = Math.floor(repeatX / 2)
-  const midY = Math.floor(repeatY / 2) + 1
+  const midY = Math.floor(repeatY / 2)
   let animationFrames: Array<Array<number>> = []
 
   // Create 10 frames

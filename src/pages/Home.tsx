@@ -8,6 +8,8 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import OM1 from '../components/OM1';
 import PreOrder from '../components/PreOrder';
+import TileBackground from "../components/TileBackground";
+import CountdownPanel from '../components/CountdownPanel';
 
 // Type declaration for Home page state store
 export interface SateStoreInterface {
@@ -50,7 +52,12 @@ const Home: React.FC = () => {
     <div className='HomeContainer' id='HomeWindow'>
       <motion.div className='HomeWrapper' id='HomeWrapper'>
         <Navbar />
+        <TileBackground 
+        height={window.outerHeight * 0.7} 
+        width={window.innerWidth}
+        />
         <Hero />
+        <CountdownPanel />
         <OM1 />
         <PreOrder />
       </motion.div>
