@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./CountdownPanel.css";
 
@@ -7,21 +7,23 @@ const CountdownPanel: React.FC = () => {
   const getCountdown = () => {
     const now = new Date().getTime()
     const timeLeft = dropTime - now
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24))
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000)
-    return `${days}:${hours}:${minutes}:${seconds}`
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24)).toString().padStart(2, '0')
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0')
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0')
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000).toString().padStart(2, '0')
+    const milliseconds = Math.floor((timeLeft % (1000)) / 10).toString().padStart(2, '0')
+    return `${days}:${hours}:${minutes}:${seconds}:${milliseconds}`
   }
 
-  const dropTime = new Date("Apr 1, 2023 00:00:00").getTime()
+  const dropTime = new Date("Apr 1, 2023 00:00:00:00").getTime()
   const [countdown, setCountdown] = React.useState<string>(getCountdown())
 
-
-  // Start interval to update countdown
-  setInterval(() => {
-    setCountdown(getCountdown())
-  }, 1000)
+  useEffect(() => {
+    // Start interval to update countdown
+    setInterval(() => {
+      setCountdown(getCountdown())
+    }, 10)
+  }, [])
 
   return (
     <div className="CountdownContainer">

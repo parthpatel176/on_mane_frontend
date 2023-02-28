@@ -16,7 +16,7 @@ const OM1: React.FC = () => {
   const enableTubAnimScrollLock = useStateStore(state => state.enableTubAnimScrollLock)
   const disableTubAnimScrollLock = useStateStore(state => state.disableTubAnimScrollLock)
   // States for title animation
-  const [titleAnim, setTitleAnim] = useState({y: 200, opacity: 0, scale: 0})
+  const [titleAnim, setTitleAnim] = useState({y: 200, opacity: 0})
 
   // Handle scroll events
   const handleScroll = () => {    
@@ -33,13 +33,13 @@ const OM1: React.FC = () => {
       setTitleAnim({
         y: 200 * (container.top / window.innerHeight),
         opacity: 1 - (container.top / window.innerHeight * 1.5),
-        scale: 1 - (container.top / window.innerHeight)
+        // scale: 1 - (container.top / window.innerHeight)
       })
     } else {
       setTitleAnim({
         y: 0,
         opacity: 1,
-        scale: 1
+        // scale: 1
       })
     }
     // If container is above view frame, place OM1 in flex-end
