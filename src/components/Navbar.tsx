@@ -6,6 +6,7 @@ import { useStateStore } from '../pages/Home';
 const Navbar: React.FC = () => {
   // State for navbar from imported state store
   const popOutNav = useStateStore(state => state.popOutNav)
+  const navbarLogo = useStateStore(state => state.navbarLogo)
 
   // Style object for transparent navbar wrapper
   const invisibleNav: React.CSSProperties = {
@@ -13,7 +14,7 @@ const Navbar: React.FC = () => {
     border: '1px groove transparent',
     boxShadow: '0px 5px 10px #00000000',
     backdropFilter: 'contrast(100%) brightness(100%) blur(0px)',
-    transition: 'all 0.2s ease',
+    // transition: 'all 0.2s ease',
   }
   // Style object for transparent navbar logo
   const invisibleLogo: React.CSSProperties = {
@@ -28,7 +29,7 @@ const Navbar: React.FC = () => {
 
   return (
     <div className="NavbarContainer">
-      <div className="NavbarWrapper" style={popOutNav? undefined : invisibleNav}>
+      <div className="NavbarWrapper" id="NavbarWrapper" style={popOutNav? undefined : invisibleNav}>
         <div className="LeftSide">
           <div className="Button">
             OM-1
@@ -40,7 +41,7 @@ const Navbar: React.FC = () => {
             About
           </div>
         </div>
-        <div className="Logo" style={popOutNav? undefined: invisibleLogo} onClick={scrollToTop}>
+        <div className="Logo" style={navbarLogo? undefined: invisibleLogo} onClick={scrollToTop}>
           On Mane
         </div>
         <div className="RightSide">

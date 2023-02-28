@@ -4,6 +4,7 @@ import "./CountdownPanel.css";
 
 const CountdownPanel: React.FC = () => {
 
+  // Calculate time until next drop and return as string
   const getCountdown = () => {
     const now = new Date().getTime()
     const timeLeft = dropTime - now

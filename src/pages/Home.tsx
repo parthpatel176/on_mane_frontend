@@ -17,6 +17,10 @@ export interface SateStoreInterface {
   enablePopOutNav: () => void
   disablePopOutNav: () => void
 
+  navbarLogo: boolean
+  enableNavbarLogo: () => void
+  disableNavbarLogo: () => void
+
   tubAnimScrollLock: boolean
   enableTubAnimScrollLock: () => void
   disableTubAnimScrollLock: () => void
@@ -26,6 +30,10 @@ export const useStateStore = create<SateStoreInterface>((set, get) => ({
   popOutNav: false,
   enablePopOutNav: () => set({ popOutNav: true }),
   disablePopOutNav: () => set({ popOutNav: false }),
+
+  navbarLogo: false,
+  enableNavbarLogo: () => set({ navbarLogo: true }),
+  disableNavbarLogo: () => set({ navbarLogo: false }),
 
   tubAnimScrollLock: false,
   enableTubAnimScrollLock: () => set({ tubAnimScrollLock: true }),
@@ -38,10 +46,17 @@ const Home: React.FC = () => {
   // Functions to update navbar state
   const enablePopOutNav = useStateStore(state => state.enablePopOutNav)
   const disablePopOutNav = useStateStore(state => state.disablePopOutNav)
+
+  const enableNavbarLogo = useStateStore(state => state.enableNavbarLogo)
+  const disableNavbarLogo = useStateStore(state => state.disableNavbarLogo)
   
   // Home page effects based on scroll
   const scrollEffects = () => {
     if (window.scrollY >= 40) {enablePopOutNav()} else {disablePopOutNav()}
+
+    const heroLogo: any = document.getElementById("HeroTitle")?.getBoundingClientRect()
+    const navbar: any = document.getElementById("NavbarWrapper")?.getBoundingClientRect()
+    if (heroLogo.bottom - 20 < navbar.bottom) {enableNavbarLogo()} else {disableNavbarLogo()}
   }
   // Execute scrolling animations
   useEffect(() => {

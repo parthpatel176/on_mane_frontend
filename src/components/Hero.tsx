@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
 
   return (
     <div className="HeroContainer" id="HeroContainer">
-      <div className="HeroTitle">
+      <div className="HeroTitle" id="HeroTitle">
         On Mane
       </div>
     </div>

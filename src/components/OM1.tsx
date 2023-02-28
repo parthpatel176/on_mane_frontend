@@ -32,14 +32,12 @@ const OM1: React.FC = () => {
     if (container.top > 0) {
       setTitleAnim({
         y: 200 * (container.top / window.innerHeight),
-        opacity: 1 - (container.top / window.innerHeight * 1.5),
-        // scale: 1 - (container.top / window.innerHeight)
+        opacity: 1 - (container.top / window.innerHeight * 1.5)
       })
     } else {
       setTitleAnim({
         y: 0,
-        opacity: 1,
-        // scale: 1
+        opacity: 1
       })
     }
     // If container is above view frame, place OM1 in flex-end
